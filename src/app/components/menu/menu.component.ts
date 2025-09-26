@@ -40,9 +40,13 @@ export class MenuComponent {
   imagen:string='';
 
   indiceSeleccionado:number=0;   
+  formProducto: any;
+  productos: any;
 
   flipFormulario(){
+
     this.formularioVisible=!this.formularioVisible;
+    this.guardarProducto();
   }
 
   agregarProducto(){
@@ -56,5 +60,24 @@ export class MenuComponent {
     console.log("El indice seleccionado fue: " + valorRecibido);
   }
 
+  guardarProducto() {
+    if (!this.nombreProducto || !this.descripcion || !this.imagen) {
+      console.log('Todos los campos son obligatorios');
+      return;
+    }
 
+    const nuevoPastel: Card = {
+      imagen: `assets/${this.imagen}`,
+      titulo: this.nombreProducto,
+      descripcion: this.descripcion,
+      ingredientes: []
+    };
+
+    this.pasteles.push(nuevoPastel);
+    console.log('Nuevo producto agregado: ', nuevoPastel);
+
+    this.nombreProducto = '';
+    this.descripcion = '';
+    this.imagen = '';
+  }
 }

@@ -45,17 +45,20 @@
   <form>
     <div class="mb-3">
       <label for="campo1" class="form-label">titulo</label>
-       <input type="text" class="form-control mb-2" [(ngModel)]="nombreProducto">
+       <input type="text" class="form-control mb-2" [(ngModel)]="nombreProducto" placeholder="Nombre del producto" name="nombreProducto" />
+
     </div>
 
     <div class="mb-3">
       <label for="campo2" class="form-label">descripcion</label>
-      <input type="text" id="campo2" class="form-control" [(ngModel)]="descripcion">
+      <input type="text" id="campo2" class="form-control" [(ngModel)]="descripcion" placeholder="Descripción" name="descripcion" />
+
     </div>
 
     <div class="mb-3">
       <label for="campo3" class="form-label">imagen</label>
-      <input type="text" id="campo3" class="form-control"[(ngModel)]="imagen">
+      <input type="text"  id="campo3" class="form-control" [(ngModel)]="imagen" placeholder="Nombre de la imagen (ej. foto.jpg)" name="imagen" />
+
     </div>
   </form>
 </div>
