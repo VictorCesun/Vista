@@ -1,0 +1,20 @@
+<div class="card p-3" (click)="seleccionDeTarjeta()">
+    <div class="row">
+        <div class="col-4 ">
+            <img class="rounded" [src]="myCard.imagen" height="100px">
+        </div>
+        <div class="col-8">
+            <div class="row fw-bold">
+                <div class="col-12">
+                    <label>{{myCard.titulo}}</label>
+                </div>
+            </div>
+            <div class="row  text-center">
+                <div class="col-12">
+                    <label>{{myCard.descripcion}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,75 @@
+<div #tarjetero class="card text-center p-3" [class.seccion-invisible]="formularioVisible">
+    <div class="row fw-bold">
+        <div class="col-12">
+            <label>Lista de PSP</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            @for (elemento of pasteles; track elemento; let indiceActual=$index) {
+                <app-tarjeta [indice]="indiceActual" (selectedCard)="recibirValor($event)" [myCard]="elemento"></app-tarjeta>
+            }
+        </div>
+
+        <div class="col-4">
+            <div class="row">
+                <div class="col-12"><label for="">
+                    Ingredientes
+                </label>
+            </div>
+            </div>
+            <div class="card">
+                <ul>
+                    @for (ingrediente of pasteles[indiceSeleccionado].ingredientes; track ingrediente) {
+                        <li>{{ingrediente}}</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+
+    <div class="row">
+        <div clas="col-12 d-flex justify-content-end pt-3">
+            <button class="btn btn-primary" (click)="flipFormulario()">Agregar</button>
+            
+        </div>
+    </div>
+</div>  
+
+<div #formulario class="card" [class.seccion-invisible]="!formularioVisible">
+    <div class="container mt-4">
+  <form>
+    <div class="mb-3">
+      <label for="campo1" class="form-label">titulo</label>
+       <input type="text" class="form-control mb-2" [(ngModel)]="nombreProducto">
+    </div>
+
+    <div class="mb-3">
+      <label for="campo2" class="form-label">descripcion</label>
+      <input type="text" id="campo2" class="form-control" [(ngModel)]="descripcion">
+    </div>
+
+    <div class="mb-3">
+      <label for="campo3" class="form-label">imagen</label>
+      <input type="text" id="campo3" class="form-control"[(ngModel)]="imagen">
+    </div>
+  </form>
+</div>
+
+<div class="row">
+    <div class="col-12 d-flex justify-content-end pt-3" (click)="flipFormulario()">
+        <button class="btn btn-primary">Guardar
+        </button>
+    </div>
+    <div class="row">
+    <div class="col-12 d-flex justify-content-end pt-3" (click)="flipFormulario()">
+        <button class="btn btn-primary">cancelar
+        </button>
+    </div>
+</div>
+
+</div>
